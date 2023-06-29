@@ -1,0 +1,92 @@
+<!-- <p>Today's drink is {{bev}}</p>
+<form (submit)="addName(newUser.value)">
+    <label>Users</label><br>
+    <input type="text" #newUser placeholder="Enter your name">
+    <button type="submit">Add</button>
+  </form>  -->
+
+<div class="cardHead">
+  <h3>Registration</h3>
+</div>
+
+<form class="form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+  <div class="field">
+    <label>Username </label><br>
+    <input type="text" 
+    class="input" 
+    formControlName="username" #name>
+    <!-- [class.invalid]="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty  || registerForm.get('username')?.touched || isSubmitted)"> -->
+  <span *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty  || registerForm.get('username')?.touched || isSubmitted)" 
+  class="error">Username required</span>
+  </div>
+
+  <div class="field">
+    <label>Email Id </label><br>
+    <input type="text" 
+    class="input" 
+    formControlName="email"
+     > 
+     <!-- [class.invalid]="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty || isSubmitted)" -->
+    <span *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty || isSubmitted)"
+    class="error" >Email Required</span>
+    </div>
+
+  <div class="field">
+    <label>Password </label><br>
+    <input type="password" 
+    class="input" 
+    formControlName="password">
+    <!-- [class.invalid]="registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty || isSubmitted)"> -->
+      <span *ngIf= "registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty || isSubmitted)"
+        class="error">Password required</span>
+      <!-- <span *ngIf= "password.errors.minLength" class="error">Must be 8 characters long</span> -->
+  </div>
+
+  <h4>Address</h4>
+  <div formGroupName="address" class="field">
+
+    <label>Street</label>
+    <input id="street" type="text" class="input" formControlName="street">
+    <label>District</label>
+    <input id="district" type="text" class="input" formControlName="district">
+    <label>Country</label>
+    <input id="country" type="text" class="input" formControlName="country">
+  </div>
+
+  <div formArrayName="interests" class="field">
+    <label>Interests:</label>
+
+    <!-- <input class= "input" type= "text" formControlName= "interest"> -->
+    <button type= "button" (click)= "addInterests()" class="addInterestBtn">+ Add Interests</button>
+
+    <div *ngFor= "let interest of interests.controls; let i=index">
+      <label for="interest-{{i}}">Interest {{i+1}}:</label>
+      <input class= "interest" type="text" [formControlName]= "i" placeholder="Enter Interests...">
+      <button type="button" (click)="deleteInterest(i)">Delete Interest{{i+1}}</button>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Gender: </label>
+    <input type="radio" name="gender" formControlName="gender">
+    <label>Male</label>
+    <input type="radio" name="gender" formControlName="gender">
+    <label>Female</label>
+
+  </div>
+
+  <div class="btnField">
+    <button type="submit" class="button">Register</button>
+  </div>
+
+  <!-- <div class="field">
+    <label>Age</label>
+    <input type="text" formControlName="age">
+    <span *ngIf="registerForm.get('age')" class="error">Must be of age 18 and above</span>
+  </div> -->
+
+</form>
+
+<div class="validators">
+  <button type="button" (click)="getMin()">Click for Min(4)</button>
+</div>

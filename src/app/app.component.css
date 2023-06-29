@@ -1,0 +1,67 @@
+.welcomeCard{
+    margin: 20px;
+    width:100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #E6D8E4;
+
+}
+
+
+.bgImage{
+    width: 100%;
+    height: 100%;
+}
+
+.displayTxt{
+    margin: 20px;
+    width:100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #31525B;
+
+}
+
+#welcomeCardBtn{
+    border: none;
+    border: white;
+    width:200px;
+    height:30px;
+}
+#welcomeCardBtn:hover{
+    background-color: #e5bcdf;
+}
+
+.hiddenCSS{
+    margin: 20px;
+    width:100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #E6D8E4;
+
+}
+
+.ifGame{
+    margin: 20px;
+    width:100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #E6D8E4;
+
+}
+
+.seasonCard{
+    margin: 20px;
+    padding: 20px;
+    background-color: #E6D8E4;
+    color: white;
+}
+
+#hiddenProperty2{
+    visibility:hidden;
+}
+
+.inputField{    
+    margin:30px;
+    
+}

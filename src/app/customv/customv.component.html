@@ -1,0 +1,83 @@
+<div class="home">
+    <div class="container">
+        <div class="formImage">
+            <div class="headerBg">
+                <h1 id="formHeader">Welcome!</h1>
+            </div>
+            <p id="formText">Register through the form</p>
+            <img class="bgImage">
+        </div>
+
+        <div class="formCard">
+            <form class="form" [formGroup]="validateForm" (ngSubmit)="validateUser()">
+                <div class="field">
+                    <label>Name:</label>
+                    <input type="text" class="input" formControlName="name">
+                    <span class="error">
+                    <ng-container *ngIf="(validateForm.get('name')?.errors?.['required'] && (validateForm.get('name')?.touched || isSubmitted))">Name field is required</ng-container>
+                    <ng-container *ngIf="validateForm.get('name')?.invalid && !(validateForm.get('name')?.errors?.['required'])">Name must be atleast 6 characters long, and less than 15 characters.  </ng-container>
+                </span>
+                </div>
+
+                <div class="field">
+                    <label>Phone Number:</label>
+                    <input type="text" class="input" formControlName="phoneNo" placeholder="+xxxXXXXXXXXXX">
+                    <span class="error">
+                        <ng-container
+                            *ngIf="validateForm.get('phoneNo')?.errors?.['required'] && (validateForm.get('phoneNo')?.touched || isSubmitted)"
+                            >Phone number is required<br></ng-container>
+                        <ng-container *ngIf="validateForm.get('phoneNo')?.errors?.['phoneInvalid'] && validateForm.get('phoneNo')?.touched">Enter a valid
+                            phone number (+xxxXXXXXXXXXX)</ng-container>
+                        </span>
+                </div>
+
+                <div class="field">
+                    <label>Email:</label>
+                    <input type="text" class="input" formControlName="email">
+                    <span class="error">
+                    <ng-container
+                        *ngIf="validateForm.get('email')?.errors?.['required'] && (validateForm.get('email')?.touched ||isSubmitted)"
+                        >Email is required<br></ng-container>
+                    <ng-container
+                        *ngIf="validateForm.get('email')?.errors?.['pattern'] && validateForm.get('email')?.touched"
+                        >Enter a valid email address</ng-container>
+                    </span>
+                </div>
+
+                <div class="field">
+                    <label>Password:</label>
+                    <input type="password" class="input" formControlName="password">
+                    <span class="error">
+                    <ng-container
+                        *ngIf="validateForm.get('password')?.errors?.['required'] && (validateForm.get('password')?.touched ||isSubmitted)"
+                        class="error">Password is required<br></ng-container>
+
+                    <ng-container
+                        *ngIf="validateForm.get('password')?.errors?.['passwordInvalid'] && validateForm.get('password')?.touched"
+                        class="error">Password must contain a number, a special character, a capital letter, and a small
+                        letter,
+                        and be at least 8 characters long</ng-container>
+                    </span>
+                </div>
+
+                <div class="field">
+                    <label>Confirm Password:</label>
+                    <input type="password" class="input" formControlName="confirmPassword">
+                    <span class="error">
+                    <ng-container
+                        *ngIf="validateForm.get('confirmPassword')?.errors?.['required'] && (validateForm.get('confirmPassword')?.touched || isSubmitted)"
+                        class="error">Confirm password is required<br></ng-container>
+                    <ng-container
+                        *ngIf="validateForm.get('confirmPassword')?.value !== validateForm.get('password')?.value && !(validateForm.get('confirmPassword')?.errors?.['required']) "
+                        class="error">Password does not match, please try again</ng-container>
+                    </span>
+                </div>
+
+                <div class="field">
+                    <button type="submit" class="SubmitButton">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

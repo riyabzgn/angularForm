@@ -1,0 +1,63 @@
+<!-- first day: ng directives and properties -->
+<!-- 
+<div>
+  <div class="welcomeCard">
+    <input type="text" [(ngModel)]="title" placeholder="Enter Name">
+    <h3>Welcome {{title}}</h3>
+    <button id="welcomeCardBtn" (click)="onclick()">Display in console </button>
+  </div>
+  <ul>
+    <li *ngFor="let number of numbers">{{ number }}</li>
+  </ul>
+
+  <div class="seasonCard">
+    <h3>Seasons of kathmandu: </h3>
+    <p *ngFor="let season of seasons">{{season}}</p>
+  </div>
+
+  <div class="displayTxt">
+    <p *ngIf="displayP">Hi, this is FoneNxt Homepage</p>
+    <button (click)="displayP= true">Click to display text</button>
+  </div>
+
+   This will not show the element in the DOM structure at all -->
+  <!-- <div class="displayTxt">
+    <p *ngIf="!displayP2">Hi, this is FoneNxt Homepage</p>
+    <button (click)="!displayP2= true">Click to display text</button>
+  </div> -->
+
+  <!-- The elements will be there in the DOM structure, but the content will only be hidden -->
+  <!-- <div class="hiddenCSS">
+    <p id="hiddenProperty1">css property of hidden NOT used here.</p>
+    <p id="hiddenProperty2">css property of hidden used here.</p>
+  </div>
+
+  <div class="ifGame"> -->
+    <!-- <p *ngIf="displayP1">Click on the button below to start the game</p> -->
+    <!-- <button (click)="displayP1= true">Start Game</button>
+
+    <div *ngIf="displayP1">
+      <p>The number has incremented to {{count}}</p>
+      <button (click)="count= count + 1">Add one</button>
+      <button *ngIf="count>0" (click)="restart()">Restart Count</button>
+    </div>
+  </div> -->
+
+
+
+<!-- form -->
+<!-- <app-form [bev]="todaysBev" (newUserEvent)="addUser($event)"></app-form> 
+<h4>List of Users:</h4>
+<ul>
+  <li *ngFor="let user of users">{{user}}</li>
+</ul>
+
+<input type="text" #fname>
+<button type="submit" (click)="displayName()">Enter</button>
+<p #displayFname>Welcome {{dFname}}</p> -->
+
+<!-- <app-form></app-form> -->
+<!-- <div>
+  <img [src]= "myimage" alt="bg-image" class="bgImage">
+</div> -->
+<router-outlet></router-outlet>
